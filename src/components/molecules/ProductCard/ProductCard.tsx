@@ -35,7 +35,9 @@ export function ProductCard({
   className = "",
 }: ProductCardProps) {
   const baseClasses =
-    "bg-white rounded-lg overflow-hidden transition-all duration-200 border border-[var(--color-gray-200,#e5e7eb)] hover:shadow-lg group";
+    "bg-white rounded-lg overflow-hidden transition-all duration-300 border border-[var(--color-gray-200,#e5e7eb)] hover:shadow-xl group";
+
+  const hasSecondImage = product.images && product.images.length > 1;
 
   return (
     <Link
@@ -46,27 +48,40 @@ export function ProductCard({
         className={`relative ${imageHeightClasses[size]} w-full overflow-hidden bg-[var(--color-gray-100,#f3f4f6)]`}
       >
         {product.featuredImage ? (
-          <Image
-            src={product.featuredImage.url}
-            alt={product.featuredImage.altText || product.title}
-            fill
-            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          <>
+            <Image
+              src={product.featuredImage.url}
+              alt={product.featuredImage.altText || product.title}
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              className={`object-cover transition-opacity duration-500 ease-in-out group-hover:scale-105 ${hasSecondImage ? "group-hover:opacity-0" : ""}`}
+            />
+            {hasSecondImage && (
+              <Image
+                src={product.images[1].url}
+                alt={
+                  product.images[1].altText || `${product.title} alternate view`
+                }
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                className="absolute inset-0 object-cover opacity-0 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:opacity-100"
+              />
+            )}
+          </>
         ) : (
           <div className="flex h-full items-center justify-center text-[var(--color-gray-400,#9ca3af)]">
             No image
           </div>
         )}
         {!product.availableForSale && (
-          <span className="absolute left-2 top-2 rounded bg-[var(--color-gray-900,#111827)] px-2 py-1 text-xs font-medium text-white">
-            Sold out
+          <span className="absolute left-3 top-3 rounded-full bg-[var(--color-gray-900,#111827)] px-3 py-1 text-xs font-semibold tracking-wider text-white shadow-sm">
+            SOLD OUT
           </span>
         )}
       </div>
 
       <div className={sizeClasses[size]}>
-        <h3 className="mb-1 text-sm font-medium text-[var(--color-gray-900,#111827)] line-clamp-2">
+        <h3 className="mb-1 text-sm font-medium text-[var(--color-gray-900,#111827)] line-clamp-2 transition-colors group-hover:text-[var(--color-primary-600,#2563eb)]">
           {product.title}
         </h3>
         <PriceDisplay
