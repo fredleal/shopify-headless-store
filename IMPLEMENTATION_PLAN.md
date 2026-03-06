@@ -48,13 +48,13 @@ Branch: `feature/cart-system`
 
 Branch: `feature/seo-and-docs`
 
-- [ ] D.1: Metadata helpers (generateProductMetadata, etc)
-- [ ] D.2: JSON-LD structured data (Product, BreadcrumbList)
-- [ ] D.3: Sitemap + robots.ts
-- [ ] D.4: Content preview (Next.js draft mode)
-- [ ] D.5: Liquid migration audit doc
-- [ ] D.6: Architecture doc
-- [ ] D.7: Hydrogen comparison doc
+- [x] D.1: Metadata helpers (generateProductMetadata, etc)
+- [x] D.2: JSON-LD structured data (Product, BreadcrumbList)
+- [x] D.3: Sitemap + robots.ts
+- [ ] D.4: Content preview (Next.js draft mode) — skipped for Phase 1, documented in architecture.md
+- [x] D.5: Liquid migration audit doc
+- [x] D.6: Architecture doc
+- [x] D.7: Hydrogen comparison doc
 
 ## Phase 2: Integration
 
