@@ -8,7 +8,7 @@ const mockCollections = [
     title: "Winter Essentials",
     description: "Stay warm with our curated winter collection.",
     image: {
-      url: "https://cdn.shopify.com/s/files/1/winter-collection.jpg",
+      url: "https://picsum.photos/seed/winter-collection/1920/1080",
       altText: "Winter collection banner",
       width: 1920,
       height: 1080,
@@ -21,12 +21,25 @@ const mockCollections = [
     title: "Everyday Basics",
     description: "Essential pieces for your everyday wardrobe.",
     image: {
-      url: "https://cdn.shopify.com/s/files/1/basics-collection.jpg",
+      url: "https://picsum.photos/seed/basics-collection/1920/1080",
       altText: "Everyday basics collection",
       width: 1920,
       height: 1080,
     },
     productCount: 8,
+  },
+  {
+    id: "gid://shopify/Collection/3",
+    handle: "summer-vibes",
+    title: "Summer Vibes",
+    description: "Light and breezy pieces for the warmer months.",
+    image: {
+      url: "https://picsum.photos/seed/summer-vibes/1920/1080",
+      altText: "Summer vibes collection",
+      width: 1920,
+      height: 1080,
+    },
+    productCount: 6,
   },
 ];
 
