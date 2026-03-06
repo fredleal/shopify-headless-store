@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { CartLine } from "@/types/cart";
+import type { CartLine } from "@/lib/shopify/types";
 
 export interface CartLineItemProps {
   line: CartLine;

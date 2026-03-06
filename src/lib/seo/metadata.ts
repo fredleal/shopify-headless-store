@@ -1,38 +1,5 @@
 import type { Metadata } from "next";
-
-// Stub types — will be replaced by imports from @/lib/shopify/types in Phase 2
-interface ShopifyMoneyV2 {
-  amount: string;
-  currencyCode: string;
-}
-
-interface ShopifyImage {
-  url: string;
-  altText: string | null;
-  width: number;
-  height: number;
-}
-
-interface Product {
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  featuredImage: ShopifyImage | null;
-  priceRange: {
-    minVariantPrice: ShopifyMoneyV2;
-    maxVariantPrice: ShopifyMoneyV2;
-  };
-  seo: { title: string | null; description: string | null };
-}
-
-interface Collection {
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  image: ShopifyImage | null;
-}
+import type { Product, Collection } from "@/lib/shopify/types";
 
 const SITE_NAME = "Shopify Headless Store";
 const BASE_URL =

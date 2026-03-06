@@ -4,49 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { PriceDisplay } from "@/components/atoms/PriceDisplay/PriceDisplay";
 import { VariantSelector } from "@/components/molecules/VariantSelector/VariantSelector";
-
-// Stub types — will be replaced by imports from @/lib/shopify/types in Phase 2
-interface ShopifyMoneyV2 {
-  amount: string;
-  currencyCode: string;
-}
-
-interface ShopifyImage {
-  url: string;
-  altText: string | null;
-  width: number;
-  height: number;
-}
-
-interface ShopifyProductVariant {
-  id: string;
-  title: string;
-  availableForSale: boolean;
-  price: ShopifyMoneyV2;
-  compareAtPrice: ShopifyMoneyV2 | null;
-  selectedOptions: { name: string; value: string }[];
-  image: ShopifyImage | null;
-}
-
-interface Product {
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  descriptionHtml: string;
-  availableForSale: boolean;
-  featuredImage: ShopifyImage | null;
-  images: ShopifyImage[];
-  variants: ShopifyProductVariant[];
-  options: { id: string; name: string; values: string[] }[];
-  priceRange: {
-    minVariantPrice: ShopifyMoneyV2;
-    maxVariantPrice: ShopifyMoneyV2;
-  };
-}
+import type { Product, ShopifyProductVariant } from "@/lib/shopify/types";
 
 export interface ProductDetailProps {
   product: Product;
+  onAddToCart?: (variantId: string, quantity: number) => void;
+  isAddingToCart?: boolean;
 }
 
 function findVariant(
@@ -60,7 +23,11 @@ function findVariant(
   );
 }
 
-export function ProductDetail({ product }: ProductDetailProps) {
+export function ProductDetail({
+  product,
+  onAddToCart,
+  isAddingToCart = false,
+}: ProductDetailProps) {
   const initialOptions: Record<string, string> = {};
   for (const option of product.options) {
     initialOptions[option.name] = option.values[0] ?? "";
@@ -159,9 +126,18 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
         <button
           type="button"
-          disabled={!product.availableForSale}
+          disabled={
+            !product.availableForSale ||
+            isAddingToCart ||
+            (!activeVariant && product.variants.length > 0)
+          }
+          onClick={() => {
+            if (activeVariant && onAddToCart) {
+              onAddToCart(activeVariant.id, 1);
+            }
+          }}
           className={`w-full rounded-lg px-6 py-3 text-base font-semibold transition-colors ${
-            product.availableForSale
+            product.availableForSale && !isAddingToCart
               ? "bg-[var(--color-primary-500,#3b82f6)] text-white hover:bg-[var(--color-primary-600,#2563eb)]"
               : "cursor-not-allowed bg-[var(--color-gray-300,#d1d5db)] text-[var(--color-gray-500,#6b7280)]"
           }`}
@@ -171,7 +147,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
               : `${product.title} is sold out`
           }
         >
-          {product.availableForSale ? "Add to Cart" : "Sold Out"}
+          {isAddingToCart
+            ? "Adding..."
+            : product.availableForSale
+              ? "Add to Cart"
+              : "Sold Out"}
         </button>
 
         <div className="border-t border-[var(--color-gray-200,#e5e7eb)] pt-6">

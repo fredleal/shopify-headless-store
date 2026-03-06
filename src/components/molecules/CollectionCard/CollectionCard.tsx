@@ -1,24 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-
-// Stub types — will be replaced by imports from @/lib/shopify/types in Phase 2
-interface ShopifyImage {
-  url: string;
-  altText: string | null;
-  width: number;
-  height: number;
-}
-
-interface Collection {
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  image: ShopifyImage | null;
-}
+import type { Collection } from "@/lib/shopify/types";
 
 export interface CollectionCardProps {
-  collection: Collection;
+  collection: Omit<Collection, "products"> | Collection;
   productCount?: number;
   className?: string;
 }

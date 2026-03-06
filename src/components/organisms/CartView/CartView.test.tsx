@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { CartView } from "./CartView";
-import type { Cart } from "@/types/cart";
+import type { Cart } from "@/lib/shopify/types";
 
 const mockCart: Cart = {
   id: "cart-1",

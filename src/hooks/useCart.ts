@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import type { Cart } from "@/types/cart";
+import type { Cart } from "@/lib/shopify/types";
 import {
   createCartAction,
   addToCartAction,
