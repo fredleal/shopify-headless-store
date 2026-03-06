@@ -79,7 +79,7 @@ describe("generateProductMetadata", () => {
 
     expect(og).toBeDefined();
     expect(og?.title).toBe("Premium Leather Jacket - Handcrafted");
-    expect(og?.type).toBe("website");
+    expect((og as { type?: string })?.type).toBe("website");
     expect(og?.siteName).toBe("Shopify Headless Store");
 
     const images = og?.images as Array<{
@@ -99,7 +99,7 @@ describe("generateProductMetadata", () => {
     const metadata = generateProductMetadata(mockProduct);
     const twitter = metadata.twitter;
 
-    expect(twitter?.card).toBe("summary_large_image");
+    expect((twitter as { card?: string })?.card).toBe("summary_large_image");
     expect(twitter?.title).toBe("Premium Leather Jacket - Handcrafted");
     expect(twitter?.images).toEqual([
       "https://cdn.shopify.com/s/files/1/leather-jacket.jpg",
@@ -212,9 +212,9 @@ describe("generateBaseMetadata", () => {
 
   it("configures OpenGraph defaults", () => {
     const metadata = generateBaseMetadata();
-    expect(metadata.openGraph?.type).toBe("website");
+    expect((metadata.openGraph as { type?: string })?.type).toBe("website");
     expect(metadata.openGraph?.siteName).toBe("Shopify Headless Store");
-    expect(metadata.openGraph?.locale).toBe("en_US");
+    expect((metadata.openGraph as { locale?: string })?.locale).toBe("en_US");
   });
 
   it("allows search engine indexing", () => {
