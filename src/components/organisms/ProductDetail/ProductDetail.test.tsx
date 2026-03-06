@@ -61,6 +61,8 @@ const mockProduct = {
     { id: "opt-1", name: "Size", values: ["Small", "Medium", "Large"] },
     { id: "opt-2", name: "Color", values: ["Black", "Brown"] },
   ],
+  seo: { title: null, description: null },
+  tags: [],
   priceRange: {
     minVariantPrice: { amount: "299.00", currencyCode: "USD" },
     maxVariantPrice: { amount: "349.00", currencyCode: "USD" },

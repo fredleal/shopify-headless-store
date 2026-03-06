@@ -19,6 +19,8 @@ const mockProducts = [
     images: [],
     variants: [],
     options: [],
+    seo: { title: null, description: null },
+    tags: [],
     priceRange: {
       minVariantPrice: { amount: "299.00", currencyCode: "USD" },
       maxVariantPrice: { amount: "299.00", currencyCode: "USD" },
@@ -35,6 +37,8 @@ const mockProducts = [
     images: [],
     variants: [],
     options: [],
+    seo: { title: null, description: null },
+    tags: [],
     priceRange: {
       minVariantPrice: { amount: "39.00", currencyCode: "USD" },
       maxVariantPrice: { amount: "39.00", currencyCode: "USD" },
