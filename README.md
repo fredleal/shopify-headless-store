@@ -2,7 +2,7 @@
 
 A modern, headless e-commerce storefront built to demonstrate composable commerce patterns using Next.js 14 and the Shopify Storefront API.
 
-🌐 **Live Demo:** [shopify-headless-store.vercel.app](https://shopify-headless-store-git-fix-typech-cffc33-fredleals-projects.vercel.app/)
+Live Demo: [shopify-headless-store.vercel.app](https://shopify-headless-store-git-fix-typech-cffc33-fredleals-projects.vercel.app/)
 
 ## Architecture Documentation
 

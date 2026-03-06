@@ -36,3 +36,8 @@ bun-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI and Planning Docs (Local Only)
+CLAUDE.md
+IMPLEMENTATION_PLAN.md
+docs/agent-briefs/
