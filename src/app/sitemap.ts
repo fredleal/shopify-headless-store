@@ -1,0 +1,38 @@
+import type { MetadataRoute } from "next";
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://shopify-headless-store.vercel.app";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  // Static routes
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    {
+      url: `${BASE_URL}/products`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/collections`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/cart`,
+      lastModified: new Date(),
+      changeFrequency: "always",
+      priority: 0.3,
+    },
+  ];
+
+  // Dynamic routes will be added in Phase 2 (fetch products/collections from API)
+  return staticRoutes;
+}

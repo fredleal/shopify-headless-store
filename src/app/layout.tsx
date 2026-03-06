@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { generateBaseMetadata } from "@/lib/seo/metadata";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Shopify Headless Store",
-  description:
-    "Headless storefront powered by Next.js and Shopify Storefront API",
-};
+export const metadata = generateBaseMetadata();
 
 export default function RootLayout({
   children,
