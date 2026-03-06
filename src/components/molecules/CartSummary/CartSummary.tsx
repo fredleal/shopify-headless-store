@@ -1,4 +1,4 @@
-import type { ShopifyMoneyV2 } from "@/types/cart";
+import type { ShopifyMoneyV2 } from "@/lib/shopify/types";
 
 export interface CartSummaryProps {
   subtotal: ShopifyMoneyV2;

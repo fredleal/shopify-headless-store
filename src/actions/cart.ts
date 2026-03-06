@@ -1,10 +1,16 @@
 "use server";
 
-import type { Cart } from "@/types/cart";
+import type { Cart } from "@/lib/shopify/types";
+import {
+  createCart,
+  addToCart,
+  removeFromCart,
+  updateCartLines,
+  getCart,
+} from "@/lib/shopify/queries/cart";
 
 export async function createCartAction(): Promise<Cart> {
-  // Will call: createCart() from @/lib/shopify/queries/cart in Phase 2
-  throw new Error("Not connected to Shopify API yet — Phase 2");
+  return createCart();
 }
 
 export async function addToCartAction(
@@ -12,21 +18,14 @@ export async function addToCartAction(
   merchandiseId: string,
   quantity: number,
 ): Promise<Cart> {
-  void cartId;
-  void merchandiseId;
-  void quantity;
-  // Will call: addToCart() from @/lib/shopify/queries/cart in Phase 2
-  throw new Error("Not connected to Shopify API yet — Phase 2");
+  return addToCart(cartId, [{ merchandiseId, quantity }]);
 }
 
 export async function removeFromCartAction(
   cartId: string,
   lineId: string,
 ): Promise<Cart> {
-  void cartId;
-  void lineId;
-  // Will call: removeFromCart() in Phase 2
-  throw new Error("Not connected to Shopify API yet — Phase 2");
+  return removeFromCart(cartId, [lineId]);
 }
 
 export async function updateCartAction(
@@ -34,15 +33,9 @@ export async function updateCartAction(
   lineId: string,
   quantity: number,
 ): Promise<Cart> {
-  void cartId;
-  void lineId;
-  void quantity;
-  // Will call: updateCartLines() in Phase 2
-  throw new Error("Not connected to Shopify API yet — Phase 2");
+  return updateCartLines(cartId, [{ id: lineId, quantity }]);
 }
 
 export async function getCartAction(cartId: string): Promise<Cart | null> {
-  void cartId;
-  // Will call: getCart() in Phase 2
-  throw new Error("Not connected to Shopify API yet — Phase 2");
+  return getCart(cartId);
 }

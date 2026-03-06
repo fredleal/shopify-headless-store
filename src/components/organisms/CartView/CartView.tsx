@@ -1,6 +1,6 @@
 "use client";
 
-import type { Cart } from "@/types/cart";
+import type { Cart } from "@/lib/shopify/types";
 import { CartLineItem } from "@/components/molecules/CartLineItem/CartLineItem";
 import { CartSummary } from "@/components/molecules/CartSummary/CartSummary";
 

@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CartLineItem } from "./CartLineItem";
-import type { CartLine } from "@/types/cart";
+import type { CartLine } from "@/lib/shopify/types";
 
 const mockLine: CartLine = {
   id: "line-1",

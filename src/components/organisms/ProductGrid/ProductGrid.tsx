@@ -1,42 +1,5 @@
 import { ProductCard } from "@/components/molecules/ProductCard/ProductCard";
-
-// Stub types — will be replaced by imports from @/lib/shopify/types in Phase 2
-interface ShopifyMoneyV2 {
-  amount: string;
-  currencyCode: string;
-}
-
-interface ShopifyImage {
-  url: string;
-  altText: string | null;
-  width: number;
-  height: number;
-}
-
-interface Product {
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  descriptionHtml: string;
-  availableForSale: boolean;
-  featuredImage: ShopifyImage | null;
-  images: ShopifyImage[];
-  variants: {
-    id: string;
-    title: string;
-    availableForSale: boolean;
-    price: ShopifyMoneyV2;
-    compareAtPrice: ShopifyMoneyV2 | null;
-    selectedOptions: { name: string; value: string }[];
-    image: ShopifyImage | null;
-  }[];
-  options: { id: string; name: string; values: string[] }[];
-  priceRange: {
-    minVariantPrice: ShopifyMoneyV2;
-    maxVariantPrice: ShopifyMoneyV2;
-  };
-}
+import type { Product } from "@/lib/shopify/types";
 
 export interface ProductGridProps {
   products: Product[];
