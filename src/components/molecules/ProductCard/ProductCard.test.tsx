@@ -18,6 +18,8 @@ const mockProduct = {
   images: [],
   variants: [],
   options: [],
+  seo: { title: null, description: null },
+  tags: [],
   priceRange: {
     minVariantPrice: { amount: "299.00", currencyCode: "USD" },
     maxVariantPrice: { amount: "349.00", currencyCode: "USD" },

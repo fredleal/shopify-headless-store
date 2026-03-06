@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import type { Product, Collection } from "@/lib/shopify/types";
 
+type ProductSeoInput = Pick<
+  Product,
+  "title" | "description" | "handle" | "featuredImage" | "priceRange" | "seo"
+>;
+type CollectionSeoInput = Pick<
+  Collection,
+  "title" | "description" | "handle" | "image"
+>;
+
 const SITE_NAME = "Shopify Headless Store";
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://shopify-headless-store.vercel.app";
 
-export function generateProductMetadata(product: Product): Metadata {
+export function generateProductMetadata(product: ProductSeoInput): Metadata {
   const title = product.seo.title || product.title;
   const description = product.seo.description || product.description;
 
@@ -39,7 +48,9 @@ export function generateProductMetadata(product: Product): Metadata {
   };
 }
 
-export function generateCollectionMetadata(collection: Collection): Metadata {
+export function generateCollectionMetadata(
+  collection: CollectionSeoInput,
+): Metadata {
   return {
     title: `${collection.title} | ${SITE_NAME}`,
     description:

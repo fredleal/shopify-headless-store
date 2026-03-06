@@ -1,6 +1,15 @@
 import type { Product, Collection } from "@/lib/shopify/types";
 
-export function generateProductJsonLd(product: Product, url: string) {
+type ProductJsonLdInput = Pick<
+  Product,
+  "title" | "description" | "featuredImage" | "priceRange"
+>;
+type CollectionJsonLdInput = Pick<Collection, "title" | "description">;
+
+export function generateProductJsonLd(
+  product: ProductJsonLdInput,
+  url: string,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -33,7 +42,10 @@ export function generateBreadcrumbJsonLd(
   };
 }
 
-export function generateCollectionJsonLd(collection: Collection, url: string) {
+export function generateCollectionJsonLd(
+  collection: CollectionJsonLdInput,
+  url: string,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
