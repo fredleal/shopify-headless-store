@@ -2,6 +2,7 @@
 
 import { useCart } from "@/hooks/useCart";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { ProductDetail } from "./ProductDetail";
 import type { Product } from "@/lib/shopify/types";
 
@@ -14,8 +15,18 @@ export function ProductDetailWithCart({ product }: ProductDetailWithCartProps) {
   const router = useRouter();
 
   const handleAddToCart = async (variantId: string, quantity: number) => {
-    await addItem(variantId, quantity);
-    router.push("/cart");
+    try {
+      await addItem(variantId, quantity);
+      toast.success("Added to cart", {
+        description: `${quantity}x ${product.title}`,
+        action: {
+          label: "View Cart",
+          onClick: () => router.push("/cart"),
+        },
+      });
+    } catch {
+      toast.error("Failed to add to cart");
+    }
   };
 
   return (

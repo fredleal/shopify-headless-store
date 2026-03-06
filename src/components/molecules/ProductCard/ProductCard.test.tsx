@@ -71,13 +71,13 @@ describe("ProductCard", () => {
   it("shows 'Sold out' badge when product is not available", () => {
     render(<ProductCard product={soldOutProduct} />);
 
-    expect(screen.getByText("Sold out")).toBeInTheDocument();
+    expect(screen.getByText("SOLD OUT")).toBeInTheDocument();
   });
 
   it("does not show 'Sold out' badge when product is available", () => {
     render(<ProductCard product={mockProduct} />);
 
-    expect(screen.queryByText("Sold out")).not.toBeInTheDocument();
+    expect(screen.queryByText("SOLD OUT")).not.toBeInTheDocument();
   });
 
   it("applies variant classes via object-map", () => {
