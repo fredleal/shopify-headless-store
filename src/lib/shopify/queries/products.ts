@@ -1,7 +1,11 @@
 import { shopifyFetch } from "../client";
 import { reshapeProduct } from "../types";
 import type { ShopifyProduct, Product } from "../types";
-import { PRODUCT_FRAGMENT } from "./fragments";
+import {
+  IMAGE_FRAGMENT,
+  VARIANT_FRAGMENT,
+  PRODUCT_FRAGMENT,
+} from "./fragments";
 
 const PRODUCTS_QUERY = /* GraphQL */ `
   query Products($first: Int!) {
@@ -13,6 +17,8 @@ const PRODUCTS_QUERY = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
+  ${VARIANT_FRAGMENT}
   ${PRODUCT_FRAGMENT}
 `;
 
@@ -22,6 +28,8 @@ const PRODUCT_BY_HANDLE_QUERY = /* GraphQL */ `
       ...ProductFields
     }
   }
+  ${IMAGE_FRAGMENT}
+  ${VARIANT_FRAGMENT}
   ${PRODUCT_FRAGMENT}
 `;
 

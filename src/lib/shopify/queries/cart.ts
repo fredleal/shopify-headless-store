@@ -1,7 +1,7 @@
 import { shopifyFetch } from "../client";
 import { reshapeCart } from "../types";
 import type { ShopifyCart, Cart } from "../types";
-import { CART_FRAGMENT } from "./fragments";
+import { IMAGE_FRAGMENT, CART_FRAGMENT } from "./fragments";
 
 const CREATE_CART_MUTATION = /* GraphQL */ `
   mutation CartCreate {
@@ -11,6 +11,7 @@ const CREATE_CART_MUTATION = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${CART_FRAGMENT}
 `;
 
@@ -22,6 +23,7 @@ const ADD_TO_CART_MUTATION = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${CART_FRAGMENT}
 `;
 
@@ -33,6 +35,7 @@ const REMOVE_FROM_CART_MUTATION = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${CART_FRAGMENT}
 `;
 
@@ -44,6 +47,7 @@ const UPDATE_CART_LINES_MUTATION = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${CART_FRAGMENT}
 `;
 
@@ -53,6 +57,7 @@ const GET_CART_QUERY = /* GraphQL */ `
       ...CartFields
     }
   }
+  ${IMAGE_FRAGMENT}
   ${CART_FRAGMENT}
 `;
 

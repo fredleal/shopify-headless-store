@@ -28,7 +28,6 @@ export const VARIANT_FRAGMENT = /* GraphQL */ `
       ...ImageFields
     }
   }
-  ${IMAGE_FRAGMENT}
 `;
 
 export const PRODUCT_FRAGMENT = /* GraphQL */ `
@@ -77,7 +76,6 @@ export const PRODUCT_FRAGMENT = /* GraphQL */ `
       }
     }
   }
-  ${VARIANT_FRAGMENT}
 `;
 
 export const COLLECTION_FRAGMENT = /* GraphQL */ `
@@ -90,7 +88,6 @@ export const COLLECTION_FRAGMENT = /* GraphQL */ `
       ...ImageFields
     }
   }
-  ${IMAGE_FRAGMENT}
 `;
 
 export const CART_FRAGMENT = /* GraphQL */ `
@@ -148,5 +145,4 @@ export const CART_FRAGMENT = /* GraphQL */ `
       }
     }
   }
-  ${IMAGE_FRAGMENT}
 `;

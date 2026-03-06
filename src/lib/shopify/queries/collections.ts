@@ -1,7 +1,12 @@
 import { shopifyFetch } from "../client";
 import { reshapeCollection, reshapeProduct } from "../types";
 import type { ShopifyCollection, Collection } from "../types";
-import { COLLECTION_FRAGMENT, PRODUCT_FRAGMENT } from "./fragments";
+import {
+  IMAGE_FRAGMENT,
+  VARIANT_FRAGMENT,
+  PRODUCT_FRAGMENT,
+  COLLECTION_FRAGMENT,
+} from "./fragments";
 
 const COLLECTIONS_QUERY = /* GraphQL */ `
   query Collections($first: Int!) {
@@ -13,6 +18,7 @@ const COLLECTIONS_QUERY = /* GraphQL */ `
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${COLLECTION_FRAGMENT}
 `;
 
@@ -29,8 +35,10 @@ const COLLECTION_BY_HANDLE_QUERY = /* GraphQL */ `
       }
     }
   }
-  ${COLLECTION_FRAGMENT}
+  ${IMAGE_FRAGMENT}
+  ${VARIANT_FRAGMENT}
   ${PRODUCT_FRAGMENT}
+  ${COLLECTION_FRAGMENT}
 `;
 
 interface CollectionsQueryResult {
