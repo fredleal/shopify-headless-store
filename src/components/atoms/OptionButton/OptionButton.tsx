@@ -8,12 +8,11 @@ export interface OptionButtonProps {
 }
 
 const stateClasses: Record<string, string> = {
-  selected:
-    "border-[var(--color-primary-500,#3b82f6)] bg-[var(--color-primary-50,#eff6ff)] text-[var(--color-primary-700,#1d4ed8)] ring-1 ring-[var(--color-primary-500,#3b82f6)]",
+  selected: "border-primary bg-primary-50 text-primary-700 ring-1 ring-primary",
   available:
-    "border-[var(--color-gray-300,#d1d5db)] bg-white text-[var(--color-gray-700,#374151)] hover:border-[var(--color-gray-400,#9ca3af)]",
+    "border-secondary-300 bg-white text-secondary-700 hover:border-secondary-400",
   unavailable:
-    "border-[var(--color-gray-200,#e5e7eb)] bg-[var(--color-gray-50,#f9fafb)] text-[var(--color-gray-400,#9ca3af)] line-through cursor-not-allowed opacity-60",
+    "border-secondary-200 bg-secondary-50 text-secondary-400 line-through cursor-not-allowed opacity-60",
 };
 
 function getStateKey(selected: boolean, available: boolean): string {

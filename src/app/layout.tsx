@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-[#fcfcfc] text-[var(--color-gray-900,#111827)] selection:bg-[var(--color-primary-100,#dbeafe)] selection:text-[var(--color-primary-900,#1e3a8a)]">
+      <body className="font-sans antialiased bg-[#fcfcfc] text-secondary-900 selection:bg-primary-100 selection:text-primary-900">
         {children}
         <Toaster
           position="bottom-center"

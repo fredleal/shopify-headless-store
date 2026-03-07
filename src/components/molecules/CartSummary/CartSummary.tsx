@@ -26,15 +26,15 @@ export const CartSummary = ({
 }: CartSummaryProps) => {
   return (
     <div
-      className={`bg-[var(--color-gray-50,#f9fafb)] rounded-lg p-6 ${className}`}
+      className={`bg-secondary-50 rounded-lg p-6 ${className}`}
       data-testid="cart-summary"
     >
-      <h2 className="text-lg font-semibold text-[var(--color-gray-900,#111827)] mb-4">
+      <h2 className="text-lg font-semibold text-secondary-900 mb-4">
         Order Summary
       </h2>
 
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-[var(--color-gray-600,#4b5563)]">
+        <div className="flex justify-between text-sm text-secondary-600">
           <span>
             Subtotal ({totalQuantity} {totalQuantity === 1 ? "item" : "items"})
           </span>
@@ -42,14 +42,14 @@ export const CartSummary = ({
         </div>
 
         {tax && parseFloat(tax.amount) > 0 && (
-          <div className="flex justify-between text-sm text-[var(--color-gray-600,#4b5563)]">
+          <div className="flex justify-between text-sm text-secondary-600">
             <span>Tax</span>
             <span>{formatMoney(tax.amount, tax.currencyCode)}</span>
           </div>
         )}
 
-        <div className="border-t border-[var(--color-gray-200,#e5e7eb)] pt-2 mt-2">
-          <div className="flex justify-between text-base font-semibold text-[var(--color-gray-900,#111827)]">
+        <div className="border-t border-secondary-200 pt-2 mt-2">
+          <div className="flex justify-between text-base font-semibold text-secondary-900">
             <span>Total</span>
             <span>{formatMoney(total.amount, total.currencyCode)}</span>
           </div>
@@ -58,7 +58,7 @@ export const CartSummary = ({
 
       <a
         href={checkoutUrl}
-        className={`mt-6 block w-full text-center py-3 px-4 rounded-md font-medium text-white bg-[var(--color-primary-500,#3b82f6)] hover:bg-[var(--color-primary-600,#2563eb)] transition-colors ${
+        className={`mt-6 block w-full text-center py-3 px-4 rounded-md font-medium text-white bg-primary hover:bg-primary-600 transition-colors ${
           totalQuantity === 0 ? "opacity-50 pointer-events-none" : ""
         }`}
         aria-disabled={totalQuantity === 0}

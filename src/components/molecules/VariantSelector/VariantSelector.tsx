@@ -17,7 +17,7 @@ export function VariantSelector({
     <div className="flex flex-col gap-4">
       {options.map((option) => (
         <fieldset key={option.name}>
-          <legend className="mb-2 text-sm font-medium text-[var(--color-gray-700,#374151)]">
+          <legend className="mb-2 text-sm font-medium text-secondary-700">
             {option.name}
           </legend>
           <div className="flex flex-wrap gap-2">

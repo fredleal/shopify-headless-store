@@ -15,9 +15,7 @@ const columnClasses: Record<number, string> = {
 export function ProductGrid({ products, columns = 4 }: ProductGridProps) {
   if (products.length === 0) {
     return (
-      <p className="py-12 text-center text-[var(--color-gray-500,#6b7280)]">
-        No products found.
-      </p>
+      <p className="py-12 text-center text-secondary-500">No products found.</p>
     );
   }
 

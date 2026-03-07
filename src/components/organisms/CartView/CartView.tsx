@@ -25,7 +25,7 @@ export const CartView = ({
       data-testid="cart-view"
     >
       <div className="lg:col-span-2">
-        <h1 className="text-2xl font-bold text-[var(--color-gray-900,#111827)] mb-6">
+        <h1 className="text-2xl font-bold text-secondary-900 mb-6">
           Shopping Cart
         </h1>
         <div>

@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/organisms/ProductGrid/ProductGrid";
@@ -14,7 +14,7 @@ export default async function ProductsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="mb-8 text-3xl font-bold text-[var(--color-gray-900,#111827)]">
+      <h1 className="mb-8 text-3xl font-bold text-secondary-900">
         All Products
       </h1>
       <ProductGrid products={products} />

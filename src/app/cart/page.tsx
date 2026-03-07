@@ -10,9 +10,7 @@ export default function CartPage() {
   if (isLoading && !cart) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <p className="text-center text-[var(--color-gray-500,#6b7280)]">
-          Loading cart...
-        </p>
+        <p className="text-center text-secondary-500">Loading cart...</p>
       </div>
     );
   }
@@ -20,9 +18,7 @@ export default function CartPage() {
   if (error) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <p className="text-center text-[var(--color-red-500,#ef4444)]">
-          {error}
-        </p>
+        <p className="text-center text-accent-red">{error}</p>
       </div>
     );
   }
@@ -30,15 +26,15 @@ export default function CartPage() {
   if (!cart || cart.lines.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold text-[var(--color-gray-900,#111827)] mb-4">
+        <h1 className="text-2xl font-bold text-secondary-900 mb-4">
           Your cart is empty
         </h1>
-        <p className="text-[var(--color-gray-500,#6b7280)] mb-6">
+        <p className="text-secondary-500 mb-6">
           Browse our products to find something you like.
         </p>
         <Link
           href="/products"
-          className="inline-block py-3 px-6 rounded-md font-medium text-white bg-[var(--color-primary-500,#3b82f6)] hover:bg-[var(--color-primary-600,#2563eb)] transition-colors"
+          className="inline-block py-3 px-6 rounded-md font-medium text-white bg-primary hover:bg-primary-600 transition-colors"
         >
           Continue Shopping
         </Link>
