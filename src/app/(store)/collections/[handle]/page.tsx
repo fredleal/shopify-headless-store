@@ -45,11 +45,13 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
         ])}
       />
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-secondary-900">
+        <h1 className="text-3xl font-bold text-[var(--color-gray-900,#111827)]">
           {collection.title}
         </h1>
         {collection.description && (
-          <p className="mt-2 text-secondary-600">{collection.description}</p>
+          <p className="mt-2 text-[var(--color-gray-600,#4b5563)]">
+            {collection.description}
+          </p>
         )}
       </div>
       <ProductGrid products={collection.products} />

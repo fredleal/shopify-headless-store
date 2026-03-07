@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export function StoreHeader() {
   return (
-    <header className="border-b border-secondary-200 bg-white">
+    <header className="border-b border-[var(--color-gray-200,#e5e7eb)] bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="text-xl font-bold text-secondary-900 hover:text-primary-600 transition-colors"
+          className="text-xl font-bold text-[var(--color-gray-900,#111827)] hover:text-[var(--color-primary-600,#2563eb)] transition-colors"
         >
           Shopify Headless Store
         </Link>
@@ -15,7 +15,7 @@ export function StoreHeader() {
           <li>
             <Link
               href="/products"
-              className="text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-colors"
+              className="text-sm font-medium text-[var(--color-gray-600,#4b5563)] hover:text-[var(--color-gray-900,#111827)] transition-colors"
             >
               Products
             </Link>
@@ -23,7 +23,7 @@ export function StoreHeader() {
           <li>
             <Link
               href="/collections"
-              className="text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-colors"
+              className="text-sm font-medium text-[var(--color-gray-600,#4b5563)] hover:text-[var(--color-gray-900,#111827)] transition-colors"
             >
               Collections
             </Link>
@@ -31,7 +31,7 @@ export function StoreHeader() {
           <li>
             <Link
               href="/cart"
-              className="text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-colors"
+              className="text-sm font-medium text-[var(--color-gray-600,#4b5563)] hover:text-[var(--color-gray-900,#111827)] transition-colors"
               aria-label="Shopping cart"
             >
               Cart

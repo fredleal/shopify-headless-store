@@ -29,10 +29,10 @@ export const CartLineItem = ({
 
   return (
     <div
-      className={`flex gap-4 py-4 border-b border-secondary-200 ${disabledClass} ${className}`}
+      className={`flex gap-4 py-4 border-b border-[var(--color-gray-200,#e5e7eb)] ${disabledClass} ${className}`}
       data-testid="cart-line-item"
     >
-      <div className="w-20 h-20 flex-shrink-0 rounded-md overflow-hidden bg-secondary-100">
+      <div className="w-20 h-20 flex-shrink-0 rounded-md overflow-hidden bg-[var(--color-gray-100,#f3f4f6)]">
         {line.productImage ? (
           <Image
             src={line.productImage.url}
@@ -42,20 +42,22 @@ export const CartLineItem = ({
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-secondary-400">
+          <div className="w-full h-full flex items-center justify-center text-[var(--color-gray-400,#9ca3af)]">
             <span aria-hidden="true">No image</span>
           </div>
         )}
       </div>
 
       <div className="flex-1 min-w-0">
-        <h3 className="text-sm font-medium text-secondary-900 truncate">
+        <h3 className="text-sm font-medium text-[var(--color-gray-900,#111827)] truncate">
           {line.productTitle}
         </h3>
         {line.variantTitle && (
-          <p className="mt-1 text-sm text-secondary-500">{line.variantTitle}</p>
+          <p className="mt-1 text-sm text-[var(--color-gray-500,#6b7280)]">
+            {line.variantTitle}
+          </p>
         )}
-        <p className="mt-1 text-sm font-medium text-secondary-900">
+        <p className="mt-1 text-sm font-medium text-[var(--color-gray-900,#111827)]">
           {formatMoney(line.price.amount, line.price.currencyCode)}
         </p>
       </div>
@@ -68,7 +70,7 @@ export const CartLineItem = ({
               onUpdateQuantity(line.id, Math.max(0, line.quantity - 1))
             }
             disabled={isLoading}
-            className="w-8 h-8 flex items-center justify-center rounded border border-secondary-300 text-secondary-600 hover:bg-secondary-50 disabled:opacity-50"
+            className="w-8 h-8 flex items-center justify-center rounded border border-[var(--color-gray-300,#d1d5db)] text-[var(--color-gray-600,#4b5563)] hover:bg-[var(--color-gray-50,#f9fafb)] disabled:opacity-50"
             aria-label={`Decrease quantity of ${line.productTitle}`}
           >
             -
@@ -83,7 +85,7 @@ export const CartLineItem = ({
             type="button"
             onClick={() => onUpdateQuantity(line.id, line.quantity + 1)}
             disabled={isLoading}
-            className="w-8 h-8 flex items-center justify-center rounded border border-secondary-300 text-secondary-600 hover:bg-secondary-50 disabled:opacity-50"
+            className="w-8 h-8 flex items-center justify-center rounded border border-[var(--color-gray-300,#d1d5db)] text-[var(--color-gray-600,#4b5563)] hover:bg-[var(--color-gray-50,#f9fafb)] disabled:opacity-50"
             aria-label={`Increase quantity of ${line.productTitle}`}
           >
             +
@@ -93,7 +95,7 @@ export const CartLineItem = ({
           type="button"
           onClick={() => onRemove(line.id)}
           disabled={isLoading}
-          className="text-sm text-accent-red hover:text-accent-red-700 disabled:opacity-50"
+          className="text-sm text-[var(--color-red-500,#ef4444)] hover:text-[var(--color-red-700,#b91c1c)] disabled:opacity-50"
           aria-label={`Remove ${line.productTitle} from cart`}
         >
           Remove

@@ -39,12 +39,12 @@ export function PriceDisplay({
       className={`inline-flex items-center gap-2 ${sizeClasses[size]} ${className}`}
     >
       <span
-        className={`font-semibold ${hasDiscount ? "text-accent-red-600" : "text-secondary-900"}`}
+        className={`font-semibold ${hasDiscount ? "text-[var(--color-red-600,#dc2626)]" : "text-[var(--color-gray-900,#111827)]"}`}
       >
         {formatted}
       </span>
       {hasDiscount && formattedCompare && (
-        <span className="text-secondary-400 line-through">
+        <span className="text-[var(--color-gray-400,#9ca3af)] line-through">
           {formattedCompare}
         </span>
       )}

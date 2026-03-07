@@ -13,7 +13,7 @@ export interface ProductCardProps {
 const variantClasses: Record<string, string> = {
   default: "",
   compact: "max-w-sm",
-  featured: "border-2 border-primary shadow-md",
+  featured: "border-2 border-[var(--color-primary-500,#3b82f6)] shadow-md",
 };
 
 const sizeClasses: Record<string, string> = {
@@ -35,7 +35,7 @@ export function ProductCard({
   className = "",
 }: ProductCardProps) {
   const baseClasses =
-    "bg-white rounded-lg overflow-hidden transition-all duration-300 border border-secondary-200 hover:shadow-xl group";
+    "bg-white rounded-lg overflow-hidden transition-all duration-300 border border-[var(--color-gray-200,#e5e7eb)] hover:shadow-xl group";
 
   const hasSecondImage = product.images && product.images.length > 1;
 
@@ -45,7 +45,7 @@ export function ProductCard({
       className={`block ${baseClasses} ${variantClasses[variant]} ${className}`}
     >
       <div
-        className={`relative ${imageHeightClasses[size]} w-full overflow-hidden bg-secondary-100`}
+        className={`relative ${imageHeightClasses[size]} w-full overflow-hidden bg-[var(--color-gray-100,#f3f4f6)]`}
       >
         {product.featuredImage ? (
           <>
@@ -69,19 +69,19 @@ export function ProductCard({
             )}
           </>
         ) : (
-          <div className="flex h-full items-center justify-center text-secondary-400">
+          <div className="flex h-full items-center justify-center text-[var(--color-gray-400,#9ca3af)]">
             No image
           </div>
         )}
         {!product.availableForSale && (
-          <span className="absolute left-3 top-3 rounded-full bg-secondary-900 px-3 py-1 text-xs font-semibold tracking-wider text-white shadow-sm">
+          <span className="absolute left-3 top-3 rounded-full bg-[var(--color-gray-900,#111827)] px-3 py-1 text-xs font-semibold tracking-wider text-white shadow-sm">
             SOLD OUT
           </span>
         )}
       </div>
 
       <div className={sizeClasses[size]}>
-        <h3 className="mb-1 text-sm font-medium text-secondary-900 line-clamp-2 transition-colors group-hover:text-primary-600">
+        <h3 className="mb-1 text-sm font-medium text-[var(--color-gray-900,#111827)] line-clamp-2 transition-colors group-hover:text-[var(--color-primary-600,#2563eb)]">
           {product.title}
         </h3>
         <PriceDisplay

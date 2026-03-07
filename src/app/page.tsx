@@ -18,12 +18,12 @@ export default async function HomePage() {
     <div className="flex min-h-screen flex-col">
       <StoreHeader />
       <main className="flex-1">
-        <section className="bg-secondary-50 py-16">
+        <section className="bg-[var(--color-gray-50,#f9fafb)] py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-bold text-secondary-900 sm:text-5xl">
+            <h1 className="text-4xl font-bold text-[var(--color-gray-900,#111827)] sm:text-5xl">
               Shopify Headless Store
             </h1>
-            <p className="mt-4 text-lg text-secondary-600 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-[var(--color-gray-600,#4b5563)] max-w-2xl mx-auto">
               A modern headless storefront powered by Next.js 14 and Shopify
               Storefront API. Browse products, explore collections, and
               experience seamless e-commerce.
@@ -31,13 +31,13 @@ export default async function HomePage() {
             <div className="mt-8 flex justify-center gap-4">
               <Link
                 href="/products"
-                className="inline-block rounded-md bg-primary px-6 py-3 font-medium text-white hover:bg-primary-600 transition-colors"
+                className="inline-block rounded-md bg-[var(--color-primary-500,#3b82f6)] px-6 py-3 font-medium text-white hover:bg-[var(--color-primary-600,#2563eb)] transition-colors"
               >
                 Shop Products
               </Link>
               <Link
                 href="/collections"
-                className="inline-block rounded-md border border-secondary-300 bg-white px-6 py-3 font-medium text-secondary-700 hover:bg-secondary-50 transition-colors"
+                className="inline-block rounded-md border border-[var(--color-gray-300,#d1d5db)] bg-white px-6 py-3 font-medium text-[var(--color-gray-700,#374151)] hover:bg-[var(--color-gray-50,#f9fafb)] transition-colors"
               >
                 Browse Collections
               </Link>
@@ -49,12 +49,12 @@ export default async function HomePage() {
           <section className="py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-secondary-900">
+                <h2 className="text-2xl font-bold text-[var(--color-gray-900,#111827)]">
                   Featured Products
                 </h2>
                 <Link
                   href="/products"
-                  className="text-sm font-medium text-primary hover:text-primary-600"
+                  className="text-sm font-medium text-[var(--color-primary-500,#3b82f6)] hover:text-[var(--color-primary-600,#2563eb)]"
                 >
                   View all &rarr;
                 </Link>
@@ -65,15 +65,15 @@ export default async function HomePage() {
         )}
 
         {collections.length > 0 && (
-          <section className="bg-secondary-50 py-16">
+          <section className="bg-[var(--color-gray-50,#f9fafb)] py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-secondary-900">
+                <h2 className="text-2xl font-bold text-[var(--color-gray-900,#111827)]">
                   Collections
                 </h2>
                 <Link
                   href="/collections"
-                  className="text-sm font-medium text-primary hover:text-primary-600"
+                  className="text-sm font-medium text-[var(--color-primary-500,#3b82f6)] hover:text-[var(--color-primary-600,#2563eb)]"
                 >
                   View all &rarr;
                 </Link>
