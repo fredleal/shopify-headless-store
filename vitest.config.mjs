@@ -27,6 +27,10 @@ export default defineConfig({
 
     include: ['**/*.{test,spec}.{ts,tsx}'],
     exclude: ['node_modules', '.next', 'dist', 'e2e'],
+
+    alias: {
+      'isomorphic-dompurify': path.resolve(__dirname, './src/test/mocks/dompurify.ts'),
+    },
   },
 
   resolve: {

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import { PriceDisplay } from "@/components/atoms/PriceDisplay/PriceDisplay";
 import { VariantSelector } from "@/components/molecules/VariantSelector/VariantSelector";
@@ -36,6 +37,11 @@ export function ProductDetail({
   const [selectedOptions, setSelectedOptions] =
     useState<Record<string, string>>(initialOptions);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const sanitizedHtml = useMemo(
+    () => DOMPurify.sanitize(product.descriptionHtml),
+    [product.descriptionHtml],
+  );
 
   const activeVariant = findVariant(product.variants, selectedOptions);
   const displayPrice = activeVariant
@@ -160,7 +166,7 @@ export function ProductDetail({
           </h2>
           <div
             className="prose prose-sm text-[var(--color-gray-600,#4b5563)]"
-            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
           />
         </div>
       </div>
