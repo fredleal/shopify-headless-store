@@ -10,8 +10,8 @@ import { getCollections } from "@/lib/shopify/queries/collections";
 
 export default async function HomePage() {
   const [products, collections] = await Promise.all([
-    getProducts(6),
-    getCollections(4),
+    getProducts(6).catch(() => []),
+    getCollections(4).catch(() => []),
   ]);
 
   return (
